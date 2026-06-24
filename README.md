@@ -116,7 +116,7 @@ Program akan menghasilkan:
 - Distribusi Data Diabetes/target
 - Distribusi BMI
 - Distribusi Glukosa
-- Correlation Heatmap
+- Correlation Heatmap 
 - Perbandingan Performa Model
 - Feature Importance
 - Confusion Matrix Model Terbaik
