@@ -1,13 +1,13 @@
 # Prediksi Diabetes Menggunakan Algoritma Machine Learning
 
-## 📋 Nama Anggota Kelompok
+## Nama Anggota Kelompok
 - Enggar Tri Rahmadhani (103132400007)
 - Rimbhi Putri Aulia Azzahra (103132400018)
 - Rebeca Grace Catlia Wahyudi (103132400015)
 
 ---
 
-## 📖 Deskripsi Permasalahan
+## Deskripsi Permasalahan
 
 Diabetes Mellitus adalah salah satu penyakit kronis yang menjadi masalah kesehatan global. Deteksi dini sangat penting untuk mencegah komplikasi serius seperti gagal ginjal, kebutaan, dan penyakit jantung. Namun, diagnosis diabetes seringkali memerlukan pemeriksaan laboratorium yang tidak selalu terjangkau oleh semua kalangan.
 
@@ -102,44 +102,10 @@ Model Machine Learning yang digunakan dan dibandingkan:
 ---
 ## Cara Menjalankan Program
 
-### 1. Clone Repository
+### Menggunakan Google Collab
 
-```bash
-git clone https://github.com/Rebecc111/diabetes-prediction-machine-learning.git
-```
-
-### 2. Masuk ke Folder Project
-
-```bash
-cd diabetes-prediction-machine-learning
-```
-
-### 3. Install Library yang Dibutuhkan
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Jalankan Notebook
-
-Buka Jupyter Notebook kemudian jalankan file:
-
-```bash
-jupyter notebook
-```
-
-Lalu buka:
-
-```text
-notebooks/Diabetes_Prediction.ipynb
-```
-
-dan jalankan seluruh cell secara berurutan.
-
-### Alternatif Menggunakan Google Colab
-
-1. Buka Google Colab.
-2. Upload file `Diabetes_Prediction.ipynb`.
+1. Buka Google Collab.
+2. Upload file `ipynb`.
 3. Upload dataset `diabetes_prediction_dataset.csv`.
 4. Jalankan seluruh cell dari atas hingga bawah.
 
@@ -147,8 +113,9 @@ dan jalankan seluruh cell secara berurutan.
 
 Program akan menghasilkan:
 
-- Distribusi Data Diabetes
+- Distribusi Data Diabetes/target
 - Distribusi BMI
+- Distribusi Glukosa
 - Correlation Heatmap
 - Perbandingan Performa Model
 - Feature Importance
@@ -207,5 +174,3 @@ Pada proyek ini berhasil dibangun model Machine Learning untuk memprediksi risik
 Lima algoritma Machine Learning dibandingkan, yaitu Logistic Regression, Decision Tree, Random Forest, K-Nearest Neighbor (KNN), dan XGBoost. Berdasarkan hasil evaluasi menggunakan Accuracy, Precision, Recall, F1-Score, dan ROC-AUC, model XGBoost menunjukkan performa terbaik dalam mengklasifikasikan pasien diabetes dan non-diabetes.
 
 Selain itu, hasil analisis feature importance menunjukkan bahwa HbA1c Level, Blood Glucose Level, Age, dan BMI merupakan fitur yang paling berpengaruh terhadap prediksi diabetes. Dengan demikian, model yang dibangun dapat digunakan sebagai alat bantu untuk mendukung deteksi dini risiko diabetes berdasarkan data kesehatan pasien.
-git clone https://github.com/username/repository-name.git
-cd repository-name
