@@ -1,9 +1,9 @@
 # 🩺 Prediksi Diabetes Menggunakan Algoritma Machine Learning
 
 ## 📋 Nama Anggota Kelompok
-- **Nama Anggota 1** (NIM)
-- **Nama Anggota 2** (NIM)
-- **Nama Anggota 3** (NIM) *[opsional, maksimal 3]*
+- Enggar Tri Rahmadhani (103132400007)
+- Rimbhi Putri Aulia Azzahra (103132400018)
+- Rebeca Grace Catlia Wahyudi (103132400015)
 
 ---
 
@@ -17,10 +17,10 @@ Diabetes Mellitus adalah salah satu penyakit kronis yang menjadi masalah kesehat
 
 ---
 
-## 📂 Sumber dan Deskripsi Dataset
+## Sumber dan Deskripsi Dataset
 
 **Sumber Dataset:**  
-[Diabetes Prediction Dataset - Kaggle](https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset)
+[Diabetes Prediction Dataset - Kaggle](https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset)
 
 **Deskripsi Dataset:**  
 Dataset ini berisi 100.000 data pasien dengan 9 fitur, antara lain:
@@ -37,32 +37,57 @@ Dataset ini berisi 100.000 data pasien dengan 9 fitur, antara lain:
 | `blood_glucose_level` | Kadar gula darah (mg/dL) |
 | `diabetes` | **Target:** Status diabetes (0 = Tidak, 1 = Ya) |
 
+Target:
+- 0 = Tidak diabetes
+- 1 = Diabetes
 ---
 
-## 🔧 Tahapan Preprocessing
+## Tahapan Preprocessing
+### 1. Pemeriksaan Missing Value
 
-1. **Penghapusan Data Duplikat**  
-   Terdapat 3.854 data duplikat yang dihapus agar tidak terjadi bias.
+Melakukan pengecekan data yang hilang (missing value) pada setiap fitur untuk memastikan kualitas data sebelum diproses lebih lanjut.
 
-2. **Encoding Data Kategorikal**  
-   Fitur `gender` dan `smoking_history` diubah menjadi numerik menggunakan **LabelEncoder**.
+### 2. Pemeriksaan dan Penghapusan Data Duplikat
 
-3. **Pemisahan Fitur dan Target**  
-   `X` = semua fitur kecuali `diabetes`  
-   `y` = kolom `diabetes`
+Melakukan identifikasi data duplikat kemudian menghapusnya agar tidak memengaruhi hasil pelatihan model.
 
-4. **Train-Test Split**  
-   Data dibagi menjadi 80% training dan 20% testing dengan stratifikasi.
+### 3. Encoding Data Kategorikal
 
-5. **Penanganan Data Tidak Seimbang (Imbalanced Data)**  
-   Menggunakan **SMOTE (Synthetic Minority Over-sampling Technique)** untuk menyeimbangkan kelas diabetes (kelas minoritas) pada data training.
+Mengubah data kategorikal menjadi data numerik menggunakan Label Encoder pada fitur:
 
-6. **Standardisasi**  
-   Fitur numerik dinormalisasi menggunakan **StandardScaler**.
+- gender
+- smoking_history
+
+### 4. Pemisahan Fitur dan Target
+
+Dataset dipisahkan menjadi:
+
+- Fitur (X)
+- Target (y)
+
+Target yang digunakan adalah variabel **diabetes**.
+
+### 5. Pembagian Data Latih dan Data Uji
+
+Dataset dibagi menjadi:
+
+- Data Latih (80%)
+- Data Uji (20%)
+
+menggunakan metode `train_test_split()`.
+
+### 6. Penyeimbangan Data Menggunakan SMOTE
+
+Karena distribusi kelas diabetes tidak seimbang, digunakan metode SMOTE (Synthetic Minority Oversampling Technique) untuk menambah jumlah data pada kelas minoritas.
+
+### 7. Standarisasi Data
+
+Melakukan standarisasi menggunakan StandardScaler agar seluruh fitur memiliki skala yang ser
+
 
 ---
 
-## 🤖 Metode yang Digunakan
+## Metode yang Digunakan
 
 Model Machine Learning yang digunakan dan dibandingkan:
 
@@ -74,18 +99,113 @@ Model Machine Learning yang digunakan dan dibandingkan:
 | 4 | K-Nearest Neighbors (KNN) | Berbasis jarak antar data |
 | 5 | XGBoost | Algoritma boosting yang powerful |
 
-**Metrik Evaluasi:**  
-- Accuracy
-- Precision
-- Recall
-- F1-Score
-- ROC-AUC
-
 ---
-
-## 🚀 Cara Menjalankan Program
+## Cara Menjalankan Program
 
 ### 1. Clone Repository
+
 ```bash
+git clone https://github.com/Rebecc111/diabetes-prediction-machine-learning.git
+```
+
+### 2. Masuk ke Folder Project
+
+```bash
+cd diabetes-prediction-machine-learning
+```
+
+### 3. Install Library yang Dibutuhkan
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Jalankan Notebook
+
+Buka Jupyter Notebook kemudian jalankan file:
+
+```bash
+jupyter notebook
+```
+
+Lalu buka:
+
+```text
+notebooks/Diabetes_Prediction.ipynb
+```
+
+dan jalankan seluruh cell secara berurutan.
+
+### Alternatif Menggunakan Google Colab
+
+1. Buka Google Colab.
+2. Upload file `Diabetes_Prediction.ipynb`.
+3. Upload dataset `diabetes_prediction_dataset.csv`.
+4. Jalankan seluruh cell dari atas hingga bawah.
+
+### Output Program
+
+Program akan menghasilkan:
+
+- Distribusi Data Diabetes
+- Distribusi BMI
+- Correlation Heatmap
+- Perbandingan Performa Model
+- Feature Importance
+- Confusion Matrix Model Terbaik
+- Nilai Accuracy, Precision, Recall, F1-Score, dan ROC-AUC dari setiap model
+  
+---
+## Hasil Eksperimen dan Evaluasi
+
+Pada penelitian ini dilakukan perbandingan performa lima algoritma Machine Learning, yaitu:
+
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- K-Nearest Neighbor (KNN)
+- XGBoost
+
+Evaluasi model dilakukan menggunakan metrik Accuracy, Precision, Recall, F1-Score, dan ROC-AUC.
+
+Hasil pengujian menunjukkan bahwa model XGBoost memberikan performa terbaik dibandingkan model lainnya. Hal ini ditunjukkan oleh nilai evaluasi yang lebih tinggi pada sebagian besar metrik yang digunakan.
+
+Selain evaluasi menggunakan metrik klasifikasi, dilakukan pula analisis menggunakan Confusion Matrix untuk melihat kemampuan model dalam mengklasifikasikan data diabetes dan non-diabetes secara lebih rinci.
+
+### Perbandingan Model
+
+Model-model yang diuji kemudian dibandingkan berdasarkan nilai F1-Score karena metrik ini mempertimbangkan keseimbangan antara Precision dan Recall, terutama pada data yang memiliki distribusi kelas tidak seimbang.
+
+Berdasarkan hasil perbandingan, urutan performa model dari yang terbaik hingga terendah adalah:
+
+1. XGBoost
+2. Random Forest
+3. K-Nearest Neighbor (KNN)
+4. Decision Tree
+5. Logistic Regression
+
+### Analisis Model Terbaik
+
+XGBoost dipilih sebagai model terbaik karena mampu menghasilkan performa klasifikasi yang lebih baik dibandingkan algoritma lainnya. Algoritma ini menggunakan metode boosting yang memperbaiki kesalahan prediksi secara bertahap sehingga mampu menangkap pola kompleks pada data kesehatan pasien.
+
+### Evaluasi Feature Importance
+
+Analisis Feature Importance menunjukkan bahwa fitur yang paling berpengaruh terhadap prediksi diabetes adalah:
+
+- HbA1c Level
+- Blood Glucose Level
+- Age
+- BMI
+
+Hasil tersebut sesuai dengan faktor medis yang umum digunakan dalam diagnosis diabetes sehingga mendukung validitas model yang dibangun.
+
+---
+## Kesimpulan
+
+Pada proyek ini berhasil dibangun model Machine Learning untuk memprediksi risiko diabetes berdasarkan data kesehatan pasien. Proses pengolahan data meliputi pemeriksaan missing value, penghapusan data duplikat, encoding data kategorikal, pembagian data latih dan data uji, penyeimbangan data menggunakan SMOTE, serta standarisasi data.
+
+Lima algoritma Machine Learning dibandingkan, yaitu Logistic Regression, Decision Tree, Random Forest, K-Nearest Neighbor (KNN), dan XGBoost. Berdasarkan hasil evaluasi menggunakan Accuracy, Precision, Recall, F1-Score, dan ROC-AUC, model XGBoost menunjukkan performa terbaik dalam mengklasifikasikan pasien diabetes dan non-diabetes.
+
+Selain itu, hasil analisis feature importance menunjukkan bahwa HbA1c Level, Blood Glucose Level, Age, dan BMI merupakan fitur yang paling berpengaruh terhadap prediksi diabetes. Dengan demikian, model yang dibangun dapat digunakan sebagai alat bantu untuk mendukung deteksi dini risiko diabetes berdasarkan data kesehatan pasien.
 git clone https://github.com/username/repository-name.git
 cd repository-name
