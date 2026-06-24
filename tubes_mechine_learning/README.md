@@ -1,4 +1,4 @@
-# 🩺 Prediksi Diabetes Menggunakan Algoritma Machine Learning
+# Prediksi Diabetes Menggunakan Algoritma Machine Learning
 
 ## 📋 Nama Anggota Kelompok
 - Enggar Tri Rahmadhani (103132400007)
